@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path .
+from pathlib import Path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
 }
 
 # MongoDB settings
-MONGODB_URI = 'mongodb+srv://mariaidhayainfanciax:<db_password>@cluster0.dxjyz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+MONGODB_URI = 'mongodb+srv://avasanth081:vasanth@cluster1.ed7yf.mongodb.net/?retryWrites=true&w=majority&appName=cluster1'
 MONGODB_NAME = 'budget'
 
 CORS_ALLOWED_ORIGINS = [

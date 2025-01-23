@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from .models import Income
 
 class UserSerializer(serializers.Serializer):
     email = serializers.EmailField()
@@ -19,3 +20,8 @@ class UserSerializer(serializers.Serializer):
         if data['password'] != data['password2']:
             raise serializers.ValidationError("Passwords don't match")
         return data
+
+class IncomeSerializer(serializers.ModelSerializers):
+    class meta:
+        model = Income  
+        fields = ['id', 'user', 'amount', 'description', 'date']

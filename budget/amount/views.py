@@ -7,6 +7,10 @@ from .serializers import UserSerializer
 from .db import MongoDB
 from .auth import JWTAuth
 import json
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from .models import Income
+from .serializers import IncomeSerializer
 
 mongo_db = MongoDB()
 
@@ -75,3 +79,20 @@ def login(request):
         },
         'tokens': tokens
     })
+class IncomeListCreateView(generics.ListCreateAPIView):
+    queryset = Income.objects.all()
+    serializer_class = IncomeSerializer
+    permission_class = [IsAuthenticated]
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_query(self):
+        return self.queryset.filter(user=self.request.user)
+class IncomeDetailView(generics.RetrieveDestroyAPIView):
+    queryset = Income.objects.all()
+    serializer_class = IncomeSerializer
+    permission_class = [IsAuthenticated] 
+
+    def get_queryset(self):
+        return self.queryset.filter(user=self.request.user)
