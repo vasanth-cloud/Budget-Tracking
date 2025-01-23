@@ -134,8 +134,10 @@ REST_FRAMEWORK = {
 }
 
 # MongoDB settings
-MONGODB_URI = 'mongodb+srv://mariaidhayainfanciax:maria@cluster1.2u1jg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1'
-MONGODB_NAME = 'budget'
+# MongoDB settings
+MONGODB_URI = 'mongodb+srv://mariaidhayainfanciax:123@cluster0.at2so.mongodb.net/'
+MONGODB_NAME = 'users'
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React frontend URL
