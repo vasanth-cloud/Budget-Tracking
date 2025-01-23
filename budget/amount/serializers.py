@@ -21,7 +21,7 @@ class UserSerializer(serializers.Serializer):
             raise serializers.ValidationError("Passwords don't match")
         return data
 
-class IncomeSerializer(serializers.ModelSerializers):
+class IncomeSerializer(serializers.ModelSerializer):
     class meta:
         model = Income  
         fields = ['id', 'user', 'amount', 'description', 'date']

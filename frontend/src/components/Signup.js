@@ -25,31 +25,32 @@ export default function Signup() {
     e.preventDefault();
     setError('');
     setLoading(true);
-
+  
     try {
-      const response = await fetch('http://localhost:8000/api/auth/signup/', {
+      const response = await fetch('http://127.0.0.1:8000/api/auth/signup/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-
+  
       if (!response.ok) {
-        throw new Error(data.error || 'Signup failed');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Something went wrong!');
       }
-
-      login(data.user, data.tokens.access);
-      navigate('/dashboard');
-    } catch (err) {
-      setError(err.message);
-    } finally {
+  
+      const data = await response.json();
+      console.log('Signup successful:', data);
+      setLoading(false);
+      // Handle success (e.g., redirect user, show success message)
+    } catch (error) {
+      console.error('Error during signup:', error.message);
+      setError(error.message);
       setLoading(false);
     }
   };
-
+  
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">

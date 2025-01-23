@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
 }
 
 # MongoDB settings
-MONGODB_URI = 'mongodb+srv://avasanth081:vasanth@cluster1.ed7yf.mongodb.net/?retryWrites=true&w=majority&appName=cluster1'
+MONGODB_URI = 'mongodb+srv://mariaidhayainfanciax:maria@cluster1.2u1jg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1'
 MONGODB_NAME = 'budget'
 
 CORS_ALLOWED_ORIGINS = [
